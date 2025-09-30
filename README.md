@@ -1,56 +1,46 @@
+# 🏥 Clinic Booking System
 
+A modular, sponsor-ready relational database designed to manage patient appointments, doctor schedules, treatments, and billing for a modern clinic. Built with scalability, diagnostics, and reproducibility in mind.
 
+---
 
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/11824f80-fe74-42f1-a2d5-3260721232d9" />
+## 📦 Features
 
-Assignment Question
-Question 1: Build a Complete Database Management System
+- **Patient Management**: Store personal and contact details with audit-ready timestamps.
+- **Doctor Registry**: Track specialties, hiring dates, and contact info.
+- **Appointment Scheduling**: Link patients and doctors with status tracking and notes.
+- **Treatment Catalog**: Define procedures with cost and descriptions.
+- **Billing System**: One-to-one billing per appointment with payment tracking.
+- **Treatment Mapping**: Many-to-many relationship between appointments and treatments.
 
-Objective:
-Design and implement a full-featured relational database using MySQL.
+---
 
-Instructions:
+## 🗂️ Database Schema Overview
 
-Choose a real-world use case (e.g., Library Management, Student Records, Clinic Booking System, Inventory Tracking, E-commerce Store, etc.).
+| Table                  | Description                                      |
+|------------------------|--------------------------------------------------|
+| `Patients`             | Stores patient details and contact info          |
+| `Doctors`              | Stores doctor profiles and specialties           |
+| `Appointments`         | Links patients and doctors with scheduling data  |
+| `Treatments`           | Catalog of available treatments and costs        |
+| `Appointment_Treatments` | Maps treatments to appointments (many-to-many) |
+| `Billing`              | Tracks payment status and totals per appointment |
 
-Create a relational database schema that includes:
+---
 
-Well-structured tables.
+## 🔗 Relationships
 
-Proper constraints (PRIMARY KEY, FOREIGN KEY, NOT NULL, UNIQUE).
+- **Appointments** ↔️ `Patients` & `Doctors`: One-to-Many
+- **Appointments** ↔️ `Treatments`: Many-to-Many via `Appointment_Treatments`
+- **Appointments** ↔️ `Billing`: One-to-One
 
-Relationships (One-to-One, One-to-Many, Many-to-Many, where applicable).
+---
 
-Use SQL to implement your design. 
+## 🛠️ Setup Instructions
 
-Deliverables:
-
-A single .sql file containing:
-
-CREATE DATABASE statement
-
-CREATE TABLE statements
-
-Relationship constraints
-
-
-Question 2: CRUD Application with Node.js or FastAPI
-
-Objective:
-Develop a simple CRUD (Create, Read, Update, Delete) application that interacts with a database.
-
-Instructions:
-
-Choose Node.js (Express) or FastAPI (Python).
-
-Connect your application to the database you designed in Question 1 (or design a simpler schema if preferred).
-
-Implement CRUD operations for at least two entities (e.g., Students & Courses, Patients & Appointments, Products & Orders).
-
-Deliverables:
-
-Source code in a GitHub repository.
-
-Clear instructions in a README.md on how to run the project.
-
-API endpoints documented (e.g., via README or Postman Collection).
+1. Clone the repository or copy the SQL schema.
+2. Run the schema in your MySQL-compatible environment:
+   ```sql
+   CREATE DATABASE ClinicBookingSystem;
+   USE ClinicBookingSystem;
+   -- Run table creation scripts
